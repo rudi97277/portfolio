@@ -12,24 +12,36 @@
     />
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <body class="font-open text-white">
-    <div class="bg-dark h-screen w-screen flex flex-col">
+  <body class="relative font-open text-white">
+    <div
+      class="absolute inset-0 size-full bg-[radial-gradient(#00000055_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff22_1px,transparent_1px)] [background-size:5px_5px]"
+    ></div>
+    <div class="bg-dark min-h-screen w-screen flex flex-col">
       <p
         class="w-full bg-complement text-center shadow-md text-sm py-1 font-semibold"
       >
         Hi! 👋👋👋
       </p>
-      <div class="grid md:grid-cols-2 flex-grow">
+      <div class="grid md:grid-cols-2 flex-grow py-10">
         <div
           class="flex flex-col justify-center items-center flex-grow text-xl"
         >
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-4 p-8">
             <div class="flex flex-col">
               <p>Hello! I'm</p>
               <p class="text-3xl font-semibold text-complement">
                 Rudianto Sihombing
               </p>
-              <p>a Software Developer</p>
+              <p>Software Developer</p>
+              <div class="mt-4 flex gap-2">
+                <p class="text-sm border-s-[1px] ps-4">
+                  I am a dedicated and innovative software developer with a
+                  passion for creating efficient and scalable solutions. With a
+                  strong foundation in various programming languages and a keen
+                  eye for detail, I strive to deliver high-quality software that
+                  meets and exceeds user expectations.
+                </p>
+              </div>
             </div>
             <a
               class="group relative inline-flex border border-complement focus:outline-none me-auto"
@@ -47,7 +59,10 @@
           ></div>
         </div>
         <div class="flex flex-col justify-center items-center gap-8">
-          <h1 class="text-xl font-semibold">My Skill</h1>
+          <div class="flex items-center gap-2">
+            <hr class="w-4 border-complement" />
+            <h1 class="text-xl font-semibold text-complement">Technologies</h1>
+          </div>
           <div class="flex flex-wrap justify-center gap-4 font-semibold">
             <div class="flex flex-col items-center gap-2">
               <img src="src/images/skills/git.svg" alt="git" width="60" />
