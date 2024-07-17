@@ -12,18 +12,27 @@
       rel="stylesheet"
     />
     <link href="./src/output.css" rel="stylesheet" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"
+    ></script>
   </head>
-  <body class="relative font-open text-white">
+  <body class="relative font-open text-white" x-data="script">
     <div
       class="absolute inset-0 size-full bg-[radial-gradient(#00000055_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff22_1px,transparent_1px)] [background-size:5px_5px]"
     ></div>
-    <div class="bg-dark min-h-screen w-screen flex flex-col">
+    <div class="flex flex-col bg-dark min-h-screen w-screen">
       <p
-        class="w-full bg-complement text-center shadow-md text-sm py-1 font-semibold"
+        class="z-50 w-full bg-complement text-center shadow-md text-lg py-1 font-semibold"
+        x-text="isProjectShow ? '🚀 Project 🚀' :'⭐ Profile ⭐'"
+      ></p>
+      <div
+        class="grid md:grid-cols-2 flex-grow py-10"
+        x-show="!isProjectShow"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
       >
-        Hi! 👋👋👋
-      </p>
-      <div class="grid md:grid-cols-2 flex-grow py-10">
         <div
           class="flex flex-col justify-center items-center flex-grow text-xl"
         >
@@ -44,16 +53,28 @@
                 </p>
               </div>
             </div>
-            <a
-              class="group relative inline-flex border border-complement focus:outline-none me-auto"
-              href="https://wa.me/6282360146468"
-            >
-              <span
-                class="w-full inline-flex ms-auto self-stretch px-3 py-2 text-sm text-white text-center font-bold uppercase bg-complement ring-1 ring-red-500 ring-offset-1 ring-offset-red-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1"
+            <div class="flex gap-4">
+              <a
+                class="group relative inline-flex border border-complement focus:outline-none"
+                href="https://wa.me/6282360146468"
               >
-                CONTACT ME
-              </span>
-            </a>
+                <span
+                  class="w-full inline-flex ms-auto self-stretch px-3 py-2 text-sm text-white text-center font-bold uppercase bg-complement ring-1 ring-red-500 ring-offset-1 ring-offset-red-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1"
+                >
+                  CONTACT ME
+                </span>
+              </a>
+              <button
+                class="group relative inline-flex border border-complement focus:outline-none"
+                x-on:click="showProject"
+              >
+                <span
+                  class="w-full inline-flex ms-auto self-stretch px-3 py-2 text-sm text-white text-center font-bold uppercase bg-complement ring-1 ring-red-500 ring-offset-1 ring-offset-red-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1"
+                >
+                  PROJECT
+                </span>
+              </button>
+            </div>
           </div>
           <div
             class="mt-6 max-w-sm mx-auto flex flex-col justify-center items-center gap-4 sm:flex-row md:mt-8 lg:mt-10"
@@ -177,6 +198,35 @@
           </div>
         </div>
       </div>
+      <div
+        class="grid flex-grow"
+        x-show="isProjectShow"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+      >
+        <div class="flex p-4 z-50">
+          <img
+            src="src/images/projects/echr.jpg"
+            alt="echr"
+            class="h-[44%] rounded-xl"
+          />
+        </div>
+        <button class="z-50" x-on:click="showProfile">PROFILE</button>
+      </div>
     </div>
   </body>
+  <script>
+    function script() {
+      return {
+        isProjectShow: false,
+        showProject() {
+          this.isProjectShow = true;
+        },
+        showProfile() {
+          this.isProjectShow = false;
+        },
+      };
+    }
+  </script>
 </html>
